@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1708 Records</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="intro">
+        <nav>
+            <ul>
+                <li>Галерея</li>
+                <li>Примеры Работ</li>
+                <li>Оборудование</li>
+            </ul>
+            
+        </nav>
+        <hr>
+       <div class="intro-wrapper">
+        <div class="intro-text">
+            <h1>Студия звукозаписи <span>на <span>Позняках</span></span></h1>
+            <div class="intro-text-adress">Пр-т Григоренка 5А</div>
+        </div>
+        <div class="intro-buttons">
+            <a href="#"><button>Записаться</button></a>
+            <a href="#"><button>Контакты</button></a>
+        </div>
+       </div>
+    </div>
+
+    <div class="break-intro-gallery">
+        <div class="line">170<span>8</span>170<span>8</span>170<span>8</span>170<span>8</span>170<span>8</span>170<span>8</span>170<span>8</span>170<span>8</span>170<span>8</span>170<span>8</span>170<span>8</span>170<span>8</span>170<span>8</span>170<span>8</span>170<span>8</span>170<span>8</span>170<span>8</span>170<span>8</span>170<span>8</span>170<span>8</span>170<span>8</span>170<span>8</span>170<span>8</span>170<span>8</span>170<span>8</span>170<span>8</span>170<span>8</span>170<span>8</span>170<span>8</span>170<span>8</span>170<span>8</span>170<span>8</span>170<span>8</span>170<span>8</span>170<span>8</span>170<span>8</span>170<span>8</span></div>
+    </div>
+    
+
+
+    <div class="gallery">
+        <div class="gallery-wrapper">
+            <div class="gallery-item main"><img class="main-image" src="assets/studio_main.jpeg" alt=""></div>
+            <div class="gallery-item">
+                <input type="radio" id="r1" name="radio" />
+                
+                    <label for="r1">
+                        <a onclick="changeImage(this)">
+                    <img class="side-image" src="assets/studio_main.jpeg" alt="" />
+                        </a>   
+                    </label>
+                
+            </div>
+            <div class="gallery-item"><input type="radio" id="r2" name="radio" />
+                <label for="r2">
+                    <a onclick="changeImage(this)">
+                        <img class="side-image" src="assets/studio_3.webp" alt="" />
+                    </a>
+                </label>
+            </div>
+            <div class="gallery-item"><input type="radio" id="r3" name="radio" />
+                <label for="r3">
+                    <a onclick="changeImage(this)">
+                        <img class="side-image" src="assets/studio_4.jpeg" alt="" />
+                    </a>
+                </label>
+            </div>
+            <div class="gallery-item"><input type="radio" id="r4" name="radio" />
+                <label for="r4">
+                    <a onclick="changeImage(this)">
+                        <img class="side-image" src="assets/studio_5.jpeg" alt="" />
+                    </a>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="equip">
+        <div class="equip-headline">
+            <div>Оборудование</div>
+        </div>
+     <div class="equip-wrapper">
+        <div class="equip-item">
+            <div class="equip-item-figure">
+                <div class="eq-tit">ADAM A7V</div> 
+            </div>
+            <div class="equip-item-image">
+                <img src="assets/adam.png" alt="">
+            </div>
+            <div class="equip-item-block">
+                
+                <div class="equip-item-desc">
+                    
+                        <div class="desc-figure">
+                            <div class="desc-tit">Мониторы ADAM Audio заслужили 
+                                всемирную репутацию превосходного инструмента 
+                                для звукорежиссеров, 
+                                основанного на технологических инновациях.
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+        <div class="equip-item">
+            <div class="equip-item-figure" id="apollo">
+                <div class="eq-tit" id="apollo-title">Apollo Twin X DUO Heritage Edition</div> 
+            </div>
+            <div class="equip-item-image">
+                <img src="assets/apollo.png" alt="">
+            </div>
+            <div class="equip-item-block">
+                
+                <div class="equip-item-desc">
+                    <div class="desc-figure">
+                        <div class="desc-tit">Apollo Twin X позволяет музыкантам и продюсерам легко отслеживать, 
+                            накладывать и микшировать с помощью аналого-цифрового 
+                            и цифро-аналогового преобразования элитного класса
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="equip-item">
+            <div class="equip-item-figure" id="rode">
+                <div class="eq-tit" id  ="rode-title">Rode NT1</div> 
+            </div>
+            <div class="equip-item-image">
+                <img src="assets/rode.png" alt="">
+            </div>
+            <div class="equip-item-block">
+                <div class="equip-item-desc">
+                    <div class="desc-figure">
+                        <div class="desc-tit" id="rode-desk-tit">RODE NT1 предлагает детализированную среднечастотную характеристику
+                             в сочетании с  гладкими высокими частотами 
+                             и округлым басом, что делает NT1 абсолютным 
+                             лидером в своем классе.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="break-equip-price">
+
+    </div>
+
+    <div class="price">
+        <div class="price-headline"></div>
+        <div class="price-wrapper">
+            <div class="price-card">
+               <div class="price-card-img">
+                <img src="" alt="">
+               </div>
+                <div class="price-item-title">
+                    Запись
+                </div>
+                <div class="price-card-value">
+                    400 грн<span>/ час</span>
+                </div>
+                <div class="price-card-desc">
+                    3 часа - 1000 грн
+                    <span>
+                        6 часов - 2000 грн
+                    </span>
+                </div>
+                <a href="#">
+                    <button>Заказать</button>
+                </a>
+            </div>
+            <div class="price-card">
+                <img src="" alt="">
+                <div class="price-item-title">
+                    Сведение
+                </div>
+                <div class="price-card-value">
+                    800 грн<span>/ трек</span>
+                </div>
+                <div class="price-card-desc">
+                    При записи в 1708
+                    <span>
+                        600 грн/трек
+                    </span>
+                </div>
+                <a href="#">
+                    <button>Заказать</button>
+                </a>
+            </div>
+            <div class="price-card">
+                <img src="" alt="">
+                <div class="price-item-title">
+                    Бит под заказ
+                </div>
+                <div class="price-card-value">
+                    400 грн<span>/ mp3</span>
+                </div>
+                <div class="price-card-desc">
+                    800 грн/wav
+                    <span>
+                        1000 грн/ trackout
+                    </span>
+                    </div>
+                    <a href="#">
+                        <button>Заказать</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="examples">
+        <div class="examples-headline">
+            Примеры работ
+        </div>
+        <div class="examples-wrapper">
+            <div class="examples-item">
+                <div class="examples-item-title">
+                    <div class="examples-item-figure">
+                        <p>chiky funk - don’t rush, go roll
+                            <span>запись, сведение, мастеринг</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="examples-item-spotify">
+                    <iframe src="" frameborder="0">
+
+                    </iframe>
+                </div>
+            </div>
+            <div class="examples-item">
+                <div class="examples-item-title">
+                    <div class="examples-item-figure">
+                        <p>guber - ya geniy
+                            <span>запись, сведение, мастеринг</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="examples-item-spotify">
+                    <iframe src="" frameborder="0">
+
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contacts">
+        <div class="contacts-headline">
+            Контакты
+        </div>
+        <div class="contacts-wrapper">
+            <div class="contacts-map">
+                <iframe src="" frameborder="0"></iframe>
+                <p>Пр-т Григоренка, 5А</p>
+            </div>
+            <div class="contacts-info">
+                <ul class="contacts-list">
+                    <li>
+                        <img src="#" alt="">
+                        Пн-Пт: 10:00-23:00
+                            <span>Сб-Вс:10:00-16:00</span>
+                    </li>
+                    <li>
+                        <img src="#" alt="">
+                        <a>instagram.com/gube.rrr</a>
+                    </li>
+                    <li>
+                        <img src="#" alt="">
+                        <a>t.me/guber_1708</a>
+                    </li>
+                    <li>
+                        <img src="#" alt="">
+                        <a>380 ### ### ### </a>
+                    </li>
+                </ul>
+                <div class="contacts-form">
+                    <form action="submit">
+                        <div class="contacts-form-title">
+                            или заполните форму,
+                            <span>мы свяжемся с вами в ближайшее время</span>
+                        </div>
+                        <input type="text" placeholder="Ваше имя">
+                        <input type="text" placeholder="Номер">
+                        <button>Отправить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        function changeImage(event) {
+          document.querySelector(".main-image").src =
+            event.children[0].src;
+        }
+     
+      </script>
+<!-- Code injected by live-server -->
+<script type="text/javascript">
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script></body>
+</html>
