@@ -5,111 +5,140 @@ let line =document.querySelector(".line");
 window.onscroll = () =>{
     let pos = window.scrollY - 800;
     line.style.right =`${pos}px`
-}
-
-const   slides = document.querySelectorAll('.slider-item'),
-        total = document.querySelector('#total'),
-        current = document.querySelector('#current'),
-        prev = document.querySelector('.slider-prev'),
-        next = document.querySelector('.slider-next'),
-        slidesWrapper = document.querySelector('.slider'),
-        slidesField = document.querySelector('.slider-inner'),
-        images = document.querySelectorAll('.slider-item img'),
-        width = window.getComputedStyle(slidesWrapper).width,
-        active = false;
-let     slideIndex =  1;
-let     offset = 0;
-let     newSlide = document.createElement('div');
-newSlide.classList.add('slider-item');
-let slidesArray = ['assets/s1.png','assets/s2.png','assets/s3.png','assets/s4.png'];
-slidesArray.forEach(item =>{
-slidesField.innerHTML += `<div class="slider-item"><img src=${item} alt=""></div>`;
-});
-slidesField.style.width = 100 * slidesArray.length +5 + '%';
-// slidesArray.forEach(slide =>{
-//     slide.style.width = width;
-// });
-slidesArray.push(`${slidesArray[1]}`);
-slidesArray.shift(1);
-console.log(slidesArray);
-function pushAndAppend (n){
-   if(n >= 3){
-    slidesArray.push(slidesArray[n-2]);
-    slidesArray.slice(2);
-    slidesField.append(newSlide);
-    newSlide.style.width = '1000px';
-    newSlide.style.height = '1000px';
-   } else {
-       console.log('no');
-   }
 };
-next.addEventListener('click', () =>{
-    if (offset === -2640){
-        offset = 0;
-        slideIndex = 1;
-        // activeSlide();
-        // slides[slideIndex-1].style.opacity = 1;
-        // images[slideIndex-1].style.height = '600px';
-        
-    } else{
-        offset += (+width.slice(0,width.length-2) * (slides.length -1))-80;
-        slideIndex++;
-       pushAndAppend(slideIndex);
-        //  activeSlide();
-        // slides[slideIndex-1].style.opacity = 1;
-        // images[slideIndex-1].style.height = '600px';
-    
-    }
-    slidesField.style.transform = `translateX(${offset}px)`;
-    console.log(slideIndex);
-    console.log(slidesArray);
-    // console.log(slidesField.style.width);
-});
-prev.addEventListener('click', () =>{
-if(offset === 0){
-    offset = -2640;
-    slideIndex = 4;
-} else{
-    offset -= +width.slice(0,width.length-2) * (slides.length -1)-80;
-    slideIndex--;
-}
-slidesField.style.transform = `translateX(${offset}px)`;
-console.log(slideIndex);
-});
-// function activeSlide(){
-//     slides.forEach(item => {
-//         item.style.opacity = 0.3;
-//     });
-//     images.forEach(item => {
-//         item.style.height = '300px';
-//     })
-// }
-// next.addEventListener('click', () => {
-//     console.log(slidesField.style.width);
-    
-        
-      
-        
-//     }
-//     slidesField.style.transform = `translateX(-${offset}px)`;
-//     console.log(slideIndex);
-// });
-// prev.addEventListener('click', () => {
 
-//     if(offset == 0) {
-//         (offset = +width.slice(0,width.length-2) * (slides.length-1));
-//         slideIndex = slides.length;
-//         activeSlide();
-//         slides[slideIndex-1].style.opacity = 1;
-//         images[slideIndex-1].style.height = '600px';
-//     } else{
-//         offset -= +width.slice(0,width.length-2) * (slides.length -3);
-//         slideIndex = slideIndex -1;
-//         activeSlide();
-//         slides[slideIndex-1].style.opacity = 1;
-//         images[slideIndex-1].style.height = '600px';
-//     }
-//     slidesField.style.transform = `translateX(-${offset}px)`;
-//     console.log(slideIndex);
-// });
-// console.log(images);
+let slidesId = 1;
+
+const sliderField = document.querySelector('.slider');
+const next = document.querySelector('.slider-next');
+const prev = document.querySelector('.slider-prev');
+class Slide {
+    constructor(img, x, y, width, height){
+        this.img = img;
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+        this.id = slidesId;
+        slidesId++;
+    }
+paint(){
+    var newSlide = document.getElementById(this.id);
+    if (newSlide === null){
+       newSlide = document.createElement('div');
+        sliderField.append(newSlide);
+    }
+    newSlide.style.position = 'absolute';
+    newSlide.style.width = this.width.toString() +'px';
+    newSlide.style.height = this.height.toString() +'px';
+    newSlide.style.backgroundImage = `url(${this.img})`;
+    newSlide.setAttribute('id', this.id);
+    newSlide.style.right = this.x.toString() + 'px';
+    newSlide.style.y = this.y;
+    newSlide.style.transition = '1s all';
+   
+    
+
+}
+changeX(x){
+    this.x=x;
+}
+changeY(y){
+    this.y = y;
+}
+changeWidth(width){
+    this.width = width;
+}
+changeHeight(height){
+    this.height=height;
+}
+changeId(id){
+    this.id = id;
+}
+
+}
+
+let activeWidth = 800,
+    activeHeight = 600,
+    sideWidth = 300,
+    sideHeigth = 400,
+    count = 3; // make array!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+class Slider {
+    constructor(){
+        let enterScreen = +document.querySelector('.slider').getBoundingClientRect().width / 2;
+        this.slides = [new Slide('assets/s1.png',0-(sideWidth/2),0,sideWidth, sideHeigth), new Slide('assets/s2.png',enterScreen-(activeWidth/2),0,activeWidth, activeHeight), new Slide('assets/s3.png',+document.querySelector('.slider').getBoundingClientRect().width - (sideWidth/2),0,sideWidth, sideHeigth)];
+        this.slides.forEach(item =>{
+            item.paint();
+        });
+        this.activeSlide = 1;
+        this.leftSlide = 0;
+        this.rightSlide =2;
+    }
+    swipeNext(){
+        // this.activeSlide--;
+        if(--this.activeSlide < 0){
+            this.activeSlide += count;
+        }
+        // this.leftSlide--;
+        if(--this.leftSlide < 0){
+            this.leftSlide += count;
+        }
+        // this.rightSlide--;
+        if(--this.rightSlide < 0){
+            this.rightSlide += count;
+        }
+        this.slides[this.activeSlide].changeHeight(activeHeight);
+        this.slides[this.activeSlide].changeWidth(activeWidth);
+        this.slides[this.activeSlide].changeX((+document.querySelector('.slider').getBoundingClientRect().width /2)-activeWidth/2); 
+        this.slides[this.leftSlide].changeHeight(sideHeigth);
+        this.slides[this.leftSlide].changeWidth(sideWidth);
+        this.slides[this.leftSlide].changeX(0-(sideWidth/2));
+        this.slides[this.rightSlide].changeHeight(sideHeigth);
+        this.slides[this.rightSlide].changeWidth(sideWidth);
+        this.slides[this.rightSlide].changeX(+document.querySelector('.slider').getBoundingClientRect().width - sideWidth/2);
+        this.slides.forEach(item =>{
+            item.paint();
+        });
+
+    };
+    swipePrev(){
+        this.activeSlide = ++this.activeSlide % count;
+        // if(--this.activeSlide < 0){
+        //     this.activeSlide += count;
+        // }
+        // this.leftSlide--;
+        this.leftSlide = ++this.leftSlide % count;
+        // if(--this.leftSlide < 0){
+        //     this.leftSlide += count;
+        // }
+        // this.rightSlide--;
+        this.rightSlide = ++this.rightSlide % count;
+        // if(--this.rightSlide < 0){
+        //     this.rightSlide += count;
+        // }
+        this.slides[this.activeSlide].changeHeight(activeHeight);
+        this.slides[this.activeSlide].changeWidth(activeWidth);
+        this.slides[this.activeSlide].changeX((+document.querySelector('.slider').getBoundingClientRect().width /2)-activeWidth/2); 
+        this.slides[this.leftSlide].changeHeight(sideHeigth);
+        this.slides[this.leftSlide].changeWidth(sideWidth);
+        this.slides[this.leftSlide].changeX(0-(sideWidth/2));
+        this.slides[this.rightSlide].changeHeight(sideHeigth);
+        this.slides[this.rightSlide].changeWidth(sideWidth);
+        this.slides[this.rightSlide].changeX(+document.querySelector('.slider').getBoundingClientRect().width - sideWidth/2);
+        this.slides.forEach(item =>{
+            item.paint();
+        });
+    };
+}
+let p = new Slider;
+
+
+next.addEventListener('click', () =>{
+    p.swipeNext();
+});
+
+prev.addEventListener('click', () =>{
+p.swipePrev();
+});
+console.log(document.querySelector('.slider').getBoundingClientRect().height);
+console.log(document.querySelector('.slider').getBoundingClientRect().width);

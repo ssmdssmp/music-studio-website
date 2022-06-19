@@ -157,15 +157,18 @@ font-size: 80px;
     /* background-image: url("assets/bg_gallery.jpg"); */
 }
 .slider{
-    
-    width: 800px;
-    height: 600px;
+    width: 100%;
+    /* background-color: #fff; */
+    height: 100%;
+    /* width: 800px;
+    height: 600px; */
     /* border:1px solid white; */
     /* overflow: hidden; */
     display: flex;
     align-items: center;
     
     border-radius: 5px;
+    gap:2%
     /* z-index: 3; */
 }
 .slider-inner{
